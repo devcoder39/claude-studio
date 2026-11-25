@@ -1,0 +1,288 @@
+# ==========================================
+# 1. ANTHROPIC Y CLAUDE CODE (Obligatorios)
+# ==========================================
+(^|\.)anthropic\.com$
+(^|\.)claude\.ai$
+
+# ==========================================
+# 2. GESTORES DE PAQUETES, RUNTIME Y REGISTRIES
+# ==========================================
+(^|\.)mise\.jdx\.dev$
+(^|\.)jdx\.dev$
+(^|\.)npmjs\.org$
+(^|\.)npmjs\.com$
+(^|\.)yarnpkg\.com$
+(^|\.)pnpm\.io$
+(^|\.)pypi\.org$
+(^|\.)pythonhosted\.org$
+(^|\.)astral\.sh$
+(^|\.)maven\.org$
+(^|\.)mvnrepository\.com$
+(^|\.)gradle\.org$
+(^|\.)nuget\.org$
+(^|\.)crates\.io$
+(^|\.)pkg\.go\.dev$
+(^|\.)docker\.com$
+(^|\.)docker\.io$
+(^|\.)ghcr\.io$
+(^|\.)quay\.io$
+
+# ==========================================
+# 3. REPOSITORIOS DE CÓDIGO Y DEVOPS
+# ==========================================
+(^|\.)github\.com$
+(^|\.)githubusercontent\.com$
+(^|\.)github\.io$
+(^|\.)gitlab\.com$
+(^|\.)bitbucket\.org$
+(^|\.)atlassian\.com$
+(^|\.)atlassian\.net$
+
+# ==========================================
+# 4. ARQUITECTURA DE SOFTWARE Y REFERENTES DEL SECTOR
+# ==========================================
+# Arquitectura, patrones y buenas prácticas
+(^|\.)martinfowler\.com$
+(^|\.)thoughtworks\.com$
+(^|\.)refactoring\.guru$
+(^|\.)bytebytego\.com$
+(^|\.)12factor\.net$
+(^|\.)c4model\.com$
+(^|\.)owasp\.org$
+(^|\.)roadmap\.sh$
+
+# Referentes hispanos e internacionales
+(^|\.)midu\.dev$
+(^|\.)midudev\.com$
+(^|\.)moure\.dev$
+(^|\.)mouredev\.com$
+(^|\.)mouredev\.pro$
+(^|\.)gentleman-programming\.com$
+(^|\.)faztweb\.com$
+(^|\.)fernando-herrera\.com$
+(^|\.)devtalles\.com$
+(^|\.)fireship\.io$
+(^|\.)kentcdodds\.com$
+(^|\.)joshwcomeau\.com$
+(^|\.)leerob\.io$
+(^|\.)overreacted\.io$
+(^|\.)addyosmani\.com$
+(^|\.)web\.dev$
+
+# ==========================================
+# 5. ECOSISTEMA JAVA & JVM (Spring, Quarkus, Micronaut, Kotlin)
+# ==========================================
+(^|\.)oracle\.com$
+(^|\.)java\.com$
+(^|\.)openjdk\.org$
+(^|\.)dev\.java$
+(^|\.)eclipse\.org$
+(^|\.)jakarta\.ee$
+(^|\.)spring\.io$
+(^|\.)quarkus\.io$
+(^|\.)micronaut\.io$
+(^|\.)kotlinlang\.org$
+(^|\.)jetbrains\.com$
+(^|\.)baeldung\.com$
+(^|\.)apache\.org$
+
+# ==========================================
+# 6. LENGUAJES DE PROGRAMACIÓN Y FRAMEWORKS WEB
+# ==========================================
+# JavaScript / TypeScript / Frontend
+(^|\.)developer\.mozilla\.org$
+(^|\.)mozilla\.org$
+(^|\.)w3\.org$
+(^|\.)tc39\.es$
+(^|\.)nodejs\.org$
+(^|\.)deno\.com$
+(^|\.)deno\.land$
+(^|\.)bun\.sh$
+(^|\.)typescriptlang\.org$
+(^|\.)angular\.dev$
+(^|\.)angular\.io$
+(^|\.)react\.dev$
+(^|\.)vuejs\.org$
+(^|\.)nextjs\.org$
+(^|\.)nuxt\.com$
+(^|\.)svelte\.dev$
+(^|\.)astro\.build$
+(^|\.)tailwindcss\.com$
+(^|\.)vitejs\.dev$
+
+# Python, Go, .NET / C#, C++, Rust
+(^|\.)python\.org$
+(^|\.)fastapi\.tiangolo\.com$
+(^|\.)djangoproject\.com$
+(^|\.)palletsprojects\.com$
+(^|\.)go\.dev$
+(^|\.)golang\.org$
+(^|\.)dotnet\.microsoft\.com$
+(^|\.)microsoft\.com$
+(^|\.)learn\.microsoft\.com$
+(^|\.)isocpp\.org$
+(^|\.)cppreference\.com$
+(^|\.)cplusplus\.com$
+(^|\.)rust-lang\.org$
+
+# ==========================================
+# 7. INFRAESTRUCTURA, OBSERVABILIDAD Y BASES DE DATOS
+# ==========================================
+# IaC, Observabilidad y Cloud Native
+(^|\.)terraform\.io$
+(^|\.)hashicorp\.com$
+(^|\.)opentofu\.org$
+(^|\.)ansible\.com$
+(^|\.)grafana\.com$
+(^|\.)prometheus\.io$
+(^|\.)opentelemetry\.io$
+(^|\.)kubernetes\.io$
+(^|\.)cncf\.io$
+(^|\.)helm\.sh$
+(^|\.)nginx\.org$
+(^|\.)nginx\.com$
+(^|\.)traefik\.io$
+
+# Cloud Providers
+(^|\.)aws\.amazon\.com$
+(^|\.)amazon\.com$
+(^|\.)google\.com$
+(^|\.)googleapis\.com$
+(^|\.)gstatic\.com$
+(^|\.)cloud\.google\.com$
+(^|\.)azure\.com$
+(^|\.)cloudflare\.com$
+(^|\.)vercel\.com$
+(^|\.)netlify\.com$
+
+# Bases de datos y mensajería
+(^|\.)postgresql\.org$
+(^|\.)mysql\.com$
+(^|\.)mariadb\.org$
+(^|\.)redis\.io$
+(^|\.)mongodb\.com$
+(^|\.)sqlite\.org$
+(^|\.)elastic\.co$
+(^|\.)kafka\.apache\.org$
+(^|\.)rabbitmq\.com$
+
+# ==========================================
+# 8. DISTRIBUCIONES LINUX Y SISTEMAS UNIX
+# ==========================================
+(^|\.)kernel\.org$
+(^|\.)linux\.org$
+(^|\.)linuxfoundation\.org$
+(^|\.)gnu\.org$
+(^|\.)ubuntu\.com$
+(^|\.)canonical\.com$
+(^|\.)debian\.org$
+(^|\.)fedoraproject\.org$
+(^|\.)redhat\.com$
+(^|\.)centos\.org$
+(^|\.)rockylinux\.org$
+(^|\.)almalinux\.org$
+(^|\.)archlinux\.org$
+(^|\.)manjaro\.org$
+(^|\.)endeavouros\.com$
+(^|\.)opensuse\.org$
+(^|\.)suse\.com$
+(^|\.)alpinelinux\.org$
+(^|\.)gentoo\.org$
+(^|\.)nixos\.org$
+(^|\.)linuxmint\.com$
+(^|\.)pop\.system76\.com$
+(^|\.)system76\.com$
+(^|\.)kali\.org$
+(^|\.)parrotsec\.org$
+(^|\.)freebsd\.org$
+(^|\.)openbsd\.org$
+
+# ==========================================
+# 9. COMUNIDADES TÉCNICAS, BLOGS Y REFERENCIA GENERAL
+# ==========================================
+(^|\.)linkedin\.com$
+(^|\.)licdn\.com$
+(^|\.)medium\.com$
+(^|\.)dev\.to$
+(^|\.)hashnode\.com$
+(^|\.)hashnode\.dev$
+(^|\.)substack\.com$
+(^|\.)stackoverflow\.com$
+(^|\.)stackexchange\.com$
+(^|\.)serverfault\.com$
+(^|\.)superuser\.com$
+(^|\.)askubuntu\.com$
+(^|\.)wikipedia\.org$
+(^|\.)wikimedia\.org$
+(^|\.)arxiv\.org$
+(^|\.)ycombinator\.com$
+
+# ==========================================
+# 10. INTELIGENCIA ARTIFICIAL, LLMs Y AGENTES
+# ==========================================
+# Laboratorios y Modelos Fundacionales
+(^|\.)openai\.com$
+(^|\.)chatgpt\.com$
+(^|\.)deepmind\.google$
+(^|\.)ai\.google\.dev$
+(^|\.)gemini\.google\.com$
+(^|\.)copilot\.microsoft\.com$
+(^|\.)ai\.meta\.com$
+(^|\.)llama\.com$
+(^|\.)mistral\.ai$
+(^|\.)cohere\.com$
+(^|\.)x\.ai$
+(^|\.)deepseek\.com$
+(^|\.)perplexity\.ai$
+(^|\.)groq\.com$
+(^|\.)together\.ai$
+(^|\.)fireworks\.ai$
+(^|\.)replicate\.com$
+
+# Ecosistema Open Source, Modelos y Ejecución Local
+(^|\.)huggingface\.co$
+(^|\.)hf\.co$
+(^|\.)ollama\.com$
+(^|\.)lmstudio\.ai$
+(^|\.)vllm\.ai$
+(^|\.)kaggle\.com$
+(^|\.)paperswithcode\.com$
+
+# Frameworks de Agentes, Orquestación y Estándares (MCP)
+(^|\.)modelcontextprotocol\.io$
+(^|\.)langchain\.com$
+(^|\.)langsmith\.com$
+(^|\.)llamaindex\.ai$
+(^|\.)crewai\.com$
+(^|\.)autogen\.microsoft\.com$
+(^|\.)pydantic\.dev$
+(^|\.)sdk\.vercel\.ai$
+(^|\.)qdrant\.tech$
+(^|\.)pinecone\.io$
+(^|\.)weaviate\.io$
+(^|\.)trychroma\.com$
+
+# Frameworks de Deep Learning y Ciencia de Datos
+(^|\.)pytorch\.org$
+(^|\.)tensorflow\.org$
+(^|\.)keras\.io$
+(^|\.)scikit-learn\.org$
+(^|\.)jax\.readthedocs\.io$
+(^|\.)onnx\.ai$
+(^|\.)wandb\.ai$
+
+# Referentes, Blogs y Divulgación de IA
+(^|\.)karpathy\.ai$
+(^|\.)simonwillison\.net$
+(^|\.)lilianweng\.github\.io$
+(^|\.)sebastianraschka\.com$
+(^|\.)deeplearning\.ai$
+(^|\.)dotcsv\.com$
+(^|\.)carlos-santana\.com$
+
+(^|\.)sigstore\.dev$
+
+# ==========================================
+# HERRAMIENTAS DE TERMINAL Y MULTIPLEXORES
+# ==========================================
+(^|\.)herdr\.dev$

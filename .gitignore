@@ -1,0 +1,31 @@
+# Archivos sensibles y variables de entorno
+.env
+.env.*
+*.pem
+*.key
+
+.npmrc
+.yarnrc
+bunfig.toml
+.yarnrc.yml
+package*
+pnpm-lock.yaml
+yarn.lock
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+*.log
+
+# Stubs de protección generados automáticamente por Claude Code en workspace/
+workspace/node_modules/
+workspace/package.json
+workspace/package-lock.json
+workspace/pnpm-lock.yaml
+workspace/yarn.lock
+workspace/.npmrc
+workspace/.yarnrc
+workspace/.yarnrc.yml
+workspace/bunfig.toml
+workspace/.gitmodules
+workspace/.claude/

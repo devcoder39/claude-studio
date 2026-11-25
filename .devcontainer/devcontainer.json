@@ -1,0 +1,51 @@
+{
+  "name": "Claude Studio",
+  "dockerComposeFile": "containers/compose.yaml",
+  "service": "claude-studio",
+  "workspaceFolder": "/claude-studio",
+  "features": {
+    "ghcr.io/devcontainers-extra/features/mise:1": {}
+  },
+  "customizations": {
+    "projectMetadata": {
+      "author": "@DevSoft Team",
+      "repository": "git@github.com:devcoder39/.git",
+      "version": "1.0.0",
+      "license": "MIT",
+      "environment": "Development"
+    },
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "hverlin.mise-vscode",
+        "jdinhlife.gruvbox"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+        "editor.formatOnSave": true,
+        "workbench.iconTheme": "symbols",
+        "workbench.colorTheme": "Gruvbox Dark Soft",
+        "git.blame.editorDecoration.enabled": true,
+        "git.blame.statusBarItem.enabled": true,
+        "scm.experimental.showHistoryGraph": true,
+        "editor.renderLineHighlight": "none",
+        "editor.cursorSmoothCaretAnimation": "off",
+        "workbench.colorCustomizations": {
+          "git.blame.editorDecorationForeground": "#c7c7c788"
+        },
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
+        },
+        "git.autocrlf": "input",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.renderIndentGuides": true
+      }
+    }
+  },
+  "initializeCommand": "bash .devcontainer/scripts/install-nerd-font.sh",
+  "postCreateCommand": "/usr/local/bin/bootstrap.sh",
+  "remoteUser": "vscode",
+  "shutdownAction": "stopCompose"
+}

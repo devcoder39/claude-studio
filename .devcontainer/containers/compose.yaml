@@ -1,0 +1,117 @@
+services:
+  docker-proxy:
+    image: tecnativa/docker-socket-proxy:latest
+    container_name: claude-studio-proxy
+    restart: unless-stopped
+    privileged: true
+    environment:
+      - LOG_LEVEL=info
+      - CONTAINERS=1
+      - IMAGES=1
+      - NETWORKS=1
+      - INFO=1
+      - PING=1
+      - POST=0
+      - EXEC=0
+      - VOLUMES=0
+      - SECRETS=0
+      - SWARM=0
+      - SYSTEM=0
+      - AUTH=0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - claude-studio-net
+
+  egress-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile.egress
+    container_name: claude-studio-egress
+    restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /var/run:rw,noexec,nosuid,size=16m
+      - /var/log:rw,noexec,nosuid,size=32m
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    volumes:
+      - ../settings-files/tinyproxy.conf:/etc/tinyproxy/tinyproxy.conf:ro
+      - ../settings-files/egress-allowlist.txt:/etc/tinyproxy/egress-allowlist.txt:ro
+    networks:
+      - claude-studio-net
+      - internet-egress
+
+  claude-studio:
+    build:
+      context: ..
+      dockerfile: containers/Dockerfile
+    container_name: claude-studio
+    user: vscode
+    command: sleep infinity
+    # Comparte el stack de red y DNS de egress-proxy (cero fallos de resolución DNS)
+    network_mode: "service:egress-proxy"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - FOWNER
+      - DAC_OVERRIDE
+      - SETUID
+      - SETGID
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=512m
+      - /var/tmp:rw,noexec,nosuid,size=256m
+      - /home/vscode/.gnupg:rw,noexec,nosuid,uid=1000,gid=1000,mode=0700,size=32m
+      - /home/vscode/.config/gopass:rw,noexec,nosuid,uid=1000,gid=1000,mode=0700,size=16m
+    environment:
+      - DOCKER_HOST=tcp://docker-proxy:2375
+      - CLAUDE_CONFIG_DIR=/home/vscode/.claude
+      - CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+      - PASSWORD_STORE_DIR=/home/vscode/.local/share/gopass/stores/root
+      - MISE_CACHE_DIR=/tmp/.mise-cache
+      - MISE_STATE_DIR=/tmp/.mise-state
+      # Apunta a localhost:8888 porque comparten la misma interfaz de red
+      - HTTP_PROXY=http://127.0.0.1:8888
+      - HTTPS_PROXY=http://127.0.0.1:8888
+      - NO_PROXY=localhost,127.0.0.1,docker-proxy
+      - http_proxy=http://127.0.0.1:8888
+      - https_proxy=http://127.0.0.1:8888
+      - no_proxy=localhost,127.0.0.1,docker-proxy
+    volumes:
+      - ../..:/claude-studio:rw
+      - claude-studio-config:/home/vscode/.claude
+      - claude-studio-mise:/home/vscode/.local/share/mise
+      - claude-studio-vscode:/home/vscode/.vscode-server
+      - ../scripts/bootstrap.sh:/usr/local/bin/bootstrap.sh:ro
+      - ${HOME}/.local/share/gopass:/home/vscode/.local/share/gopass:ro
+      - ${HOME}/.gnupg/pubring.kbx:/home/vscode/.gnupg/pubring.kbx:ro
+      - ${HOME}/.gnupg/trustdb.gpg:/home/vscode/.gnupg/trustdb.gpg:ro
+      - ${HOME}/.gnupg/private-keys-v1.d:/home/vscode/.gnupg/private-keys-v1.d:ro
+      - ../scripts/claude-statusline.sh:/usr/local/bin/claude-statusline.sh:ro
+
+
+    depends_on:
+      - docker-proxy
+      - egress-proxy
+
+networks:
+  claude-studio-net:
+    internal: true
+  internet-egress:
+    driver: bridge
+
+volumes:
+  claude-studio-config:
+  claude-studio-mise:
+  claude-studio-vscode:

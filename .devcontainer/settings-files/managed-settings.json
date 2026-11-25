@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "apiKeyHelper": "/home/vscode/.local/share/mise/shims/gopass show -o claude/anthropic_api_key",
+  "language": "spanish",
+  "cleanupPeriodDays": 14,
+  "autoUpdatesChannel": "stable",
+  "disableSkillShellExecution": true,
+  "disableRemoteControl": true,
+  "disableDeepLinkRegistration": "disable",
+  "disableBypassPermissionsMode": "disable",
+  "disableAutoMode": "disable",
+  "allowManagedPermissionRulesOnly": false,
+  "allowManagedHooksOnly": false,
+  "allowManagedMcpServersOnly": true,
+  "disableSideloadFlags": true,
+  "disableCommandPluginSources": true,
+  "tui": "fullscreen",
+  "promptCacheTtl": "1h",
+  "subagentPromptCacheTtl": "5m",
+  "bashOutputMaxChars": 15000,
+  "respectGitignore": true,
+  "permissions": {
+    "defaultMode": "default",
+    "blockReadsOutsideWorkingDirectories": true,
+    "blockWritesOutsideWorkingDirectories": true,
+    "disableBypassPermissionsMode": "disable",
+    "deny": [
+      "Read(./.devcontainer/**)",
+      "Edit(./.devcontainer/**)",
+      "Write(./.devcontainer/**)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(//home/vscode/.gnupg/**)",
+      "Read(//home/vscode/.local/share/gopass/**)",
+      "Read(//home/vscode/.config/gopass/**)",
+      "Read(//etc/claude-code/**)",
+      "Bash(sudo *)",
+      "Bash(su *)",
+      "Bash(chmod *)",
+      "Bash(chown *)",
+      "Bash(gopass *)",
+      "Bash(gpg *)",
+      "Bash(gpg2 *)",
+      "Bash(env)",
+      "Bash(printenv*)",
+      "Bash(docker run*)",
+      "Bash(docker exec*)",
+      "Bash(docker compose*)",
+      "Bash(docker-compose*)",
+      "Bash(docker volume*)",
+      "Bash(docker system*)",
+      "Bash(rm -rf *)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | sh)"
+    ],
+    "ask": [
+      "Write(*)",
+      "Edit(*)",
+      "Bash(*)",
+      "WebFetch(*)",
+      "WebSearch"
+    ],
+    "allow": [
+      "Read(/workspace/**)",
+      "Bash(docker ps*)",
+      "Bash(docker logs*)",
+      "Bash(docker inspect*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)"
+    ]
+  },
+  "sandbox": {
+    "enabled": false,
+    "credentials": {
+      "files": [
+        {
+          "path": "~/.gnupg/private-keys-v1.d",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.local/share/gopass",
+          "mode": "deny"
+        }
+      ],
+      "envVars": [
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_SECRET_ACCESS_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "GITHUB_TOKEN",
+          "mode": "deny"
+        }
+      ]
+    }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "/usr/local/bin/claude-statusline.sh"
+  },
+  "strictKnownMarketplaces": [
+    {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    }
+  ],
+  "enabledPlugins": {
+    "security-guidance@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true
+  },
+  "env": {
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "DISABLE_UPDATES": "1",
+    "CLAUDE_CODE_SUBPROCESS_ENV_SCRUB": "1",
+    "CLAUDE_CODE_MCP_ALLOWLIST_ENV": "1",
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
+    "CLAUDE_CODE_NO_FLICKER": "1",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "haiku",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "75",
+    "CLAUDE_CODE_MAX_TOOL_USE_CONCURRENCY": "10",
+    "CLAUDE_CODE_MAX_SUBAGENTS_PER_SESSION": "30",
+    "CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS": "5",
+    "CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION": "40",
+    "BASH_MAX_TIMEOUT_MS": "120000"
+  }
+}

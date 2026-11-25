@@ -1,0 +1,16 @@
+[tools]
+node = "22"
+gopass = "latest"
+pnpm = "12"
+claude-code = "latest"
+herdr = "latest"
+
+[env]
+PNPM_HOME = "{{ env.HOME }}/.local/share/pnpm"
+_.path = ["{{ env.PNPM_HOME }}/bin"]
+NG_CLI_ANALYTICS = "false"
+NX_DAEMON = "true"
+
+[tasks.setup]
+description = "Install workspace dependencies safely with pnpm"
+run = "pnpm install --frozen-lockfile"
