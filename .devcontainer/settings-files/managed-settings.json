@@ -1,6 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "apiKeyHelper": "/home/vscode/.local/share/mise/shims/gopass show -o claude/anthropic_api_key",
   "language": "spanish",
   "cleanupPeriodDays": 14,
   "autoUpdatesChannel": "stable",

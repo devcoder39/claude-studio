@@ -27,3 +27,10 @@ eval "$(starship init zsh)"
 # Alias prácticos para Claude Studio
 alias cc="claude"
 alias ccr="claude --resume"
+
+# Vincular gpg-agent local con la terminal actual
+export GPG_TTY=$(tty)
+if [ -S "$HOME/.gnupg/S.gpg-agent.extra" ] || ! gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1; then
+  rm -f "$HOME/.gnupg"/S.gpg-agent*
+  gpg-agent --daemon --pinentry-program /usr/bin/pinentry-curses --allow-loopback-pinentry --disable-scdaemon >/dev/null 2>&1
+fi

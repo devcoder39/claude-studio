@@ -78,7 +78,7 @@ services:
       - DOCKER_HOST=tcp://docker-proxy:2375
       - CLAUDE_CONFIG_DIR=/home/vscode/.claude
       - CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
-      - PASSWORD_STORE_DIR=/home/vscode/.local/share/gopass/stores/root
+      - GOPASS_NO_REMOTES=true
       - MISE_CACHE_DIR=/tmp/.mise-cache
       - MISE_STATE_DIR=/tmp/.mise-state
       # Apunta a localhost:8888 porque comparten la misma interfaz de red
@@ -94,13 +94,10 @@ services:
       - claude-studio-mise:/home/vscode/.local/share/mise
       - claude-studio-vscode:/home/vscode/.vscode-server
       - ../scripts/bootstrap.sh:/usr/local/bin/bootstrap.sh:ro
-      - ${HOME}/.local/share/gopass:/home/vscode/.local/share/gopass:ro
-      - ${HOME}/.gnupg/pubring.kbx:/home/vscode/.gnupg/pubring.kbx:ro
-      - ${HOME}/.gnupg/trustdb.gpg:/home/vscode/.gnupg/trustdb.gpg:ro
-      - ${HOME}/.gnupg/private-keys-v1.d:/home/vscode/.gnupg/private-keys-v1.d:ro
       - ../scripts/claude-statusline.sh:/usr/local/bin/claude-statusline.sh:ro
-
-
+      # Montaje de bóveda gopass y llaves GPG reales de macOS en SOLO LECTURA
+      - ${HOME}/.local/share/gopass/stores/root:/home/vscode/.gopass-vault:ro
+      - ${HOME}/.gnupg:/mnt/host-gnupg:ro
     depends_on:
       - docker-proxy
       - egress-proxy

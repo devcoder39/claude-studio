@@ -3,6 +3,7 @@
 # ==========================================
 (^|\.)anthropic\.com$
 (^|\.)claude\.ai$
+(^|\.)claude\.com$
 
 # ==========================================
 # 2. GESTORES DE PAQUETES, RUNTIME Y REGISTRIES

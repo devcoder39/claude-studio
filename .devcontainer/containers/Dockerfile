@@ -3,8 +3,9 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu26.04
 # 1. Instalar dependencias base, gnupg, zsh y fzf
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y --no-install-recommends \
-    curl git gnupg2 ca-certificates docker-cli zsh fzf \
+       curl git gnupg2 pinentry-curses ca-certificates docker-cli zsh fzf python3 \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+
 
 # 2. Instalar Starship en /usr/local/bin
 RUN curl -sS https://starship.rs/install.sh | sh -s -- -y -b /usr/local/bin
@@ -30,6 +31,13 @@ RUN mkdir -p /home/vscode/.config \
     /home/vscode/.claude \
     /home/vscode/.local/share/mise \
     /home/vscode/.vscode-server
+
+# Configurar gopass de forma permanente apuntando al volumen montado en /mnt/gopass-store
+RUN mkdir -p /home/vscode/.config/gopass \
+    && printf "[mounts]\n\tpath = /mnt/gopass-store\n" > /home/vscode/.config/gopass/config \
+    && printf "root:\n  path: /mnt/gopass-store\n" > /home/vscode/.config/gopass/config.yml \
+    && chmod 600 /home/vscode/.config/gopass/config /home/vscode/.config/gopass/config.yml
+
 
 # 6. Copiar configuración limpia de Zsh y Starship al home de vscode
 RUN mkdir -p /home/vscode/.config

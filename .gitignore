@@ -29,3 +29,7 @@ workspace/.yarnrc.yml
 workspace/bunfig.toml
 workspace/.gitmodules
 workspace/.claude/
+
+# Documentos e insumos locales dentro de workspace/assets/
+workspace/assets/*
+!workspace/assets/.gitkeep

@@ -47,5 +47,8 @@
   "initializeCommand": "bash .devcontainer/scripts/install-nerd-font.sh",
   "postCreateCommand": "/usr/local/bin/bootstrap.sh",
   "remoteUser": "vscode",
-  "shutdownAction": "stopCompose"
+  "shutdownAction": "stopCompose",
+  "remoteEnv": {
+    "GPG_TTY": "/dev/pts/0"
+  }
 }
